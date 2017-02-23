@@ -395,7 +395,8 @@ class Client
         $curl_options = array(
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_CUSTOMREQUEST  => $http_method
+            CURLOPT_CUSTOMREQUEST  => $http_method,
+	    CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4
         );
 
         switch($http_method) {
