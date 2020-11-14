@@ -395,10 +395,14 @@ class BigBrother {
         $url  = $this->baseUrl . 'data/ga?';
 
         $queryString[] = 'ids=ga:' . $this->getOption('account');
-        if( count($dimensions) > 0  ) $queryString[] = ('&dimensions=' . join(array_reverse($dimensions), ','));
-        if( count($metrics) > 0 ) $queryString[] = ('&metrics=' . join($metrics, ','));
-        if( count($sort) > 0 ) $queryString[] = '&sort=' . join($sort, ',');
-        if( count($filters) > 0 ) $queryString[] = '&filters=' . urlencode(join($filters, ','));
+        if( isset( $dimensions ) && sizeof( $dimensions ) > 0 )
+            $queryString[] = ('&dimensions=' . join(array_reverse($dimensions), ','));
+        if( isset( $metrics ) && sizeof( $metrics ) > 0 )
+            $queryString[] = ('&metrics=' . join($metrics, ','));
+        if( isset( $sort ) && sizeof( $sort ) > 0 )
+            $queryString[] = '&sort=' . join($sort, ',');
+        if( isset( $filters ) && sizeof( $filters ) > 0 )
+            $queryString[] = '&filters=' . urlencode(join($filters, ','));
         $queryString[] = '&start-date=' . $dateStart;
         $queryString[] = '&end-date=' .$dateEnd;
         if( $limit != null ) $queryString[] = '&max-results=' .$limit;
