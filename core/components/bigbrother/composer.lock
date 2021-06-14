@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "540646f15157ff2e06885fc4e5164102",
+    "content-hash": "5169a57b0a432884c0e7a493328f4d25",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -58,16 +58,16 @@
         },
         {
             "name": "google/analytics-admin",
-            "version": "v0.2.0",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/php-analytics-admin.git",
-                "reference": "ee31c901ca9cb1151eb20b4bc256b22af03ff129"
+                "reference": "47acb167f4314ef44aeeee582d6d5cde76714aa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/php-analytics-admin/zipball/ee31c901ca9cb1151eb20b4bc256b22af03ff129",
-                "reference": "ee31c901ca9cb1151eb20b4bc256b22af03ff129",
+                "url": "https://api.github.com/repos/googleapis/php-analytics-admin/zipball/47acb167f4314ef44aeeee582d6d5cde76714aa0",
+                "reference": "47acb167f4314ef44aeeee582d6d5cde76714aa0",
                 "shasum": ""
             },
             "require": {
@@ -102,7 +102,7 @@
                 "Apache-2.0"
             ],
             "description": "Google Analytics Admin Client for PHP",
-            "time": "2021-02-11T16:53:33+00:00"
+            "time": "2021-06-09T22:04:14+00:00"
         },
         {
             "name": "google/analytics-data",
@@ -335,16 +335,16 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v3.17.2",
+            "version": "v3.17.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "eb88ea2fd91beedfc79ed43305bc755e66b30fe4"
+                "reference": "ae9282cf11dd2933b7e71a611f9590f07d53d3f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/eb88ea2fd91beedfc79ed43305bc755e66b30fe4",
-                "reference": "eb88ea2fd91beedfc79ed43305bc755e66b30fe4",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/ae9282cf11dd2933b7e71a611f9590f07d53d3f3",
+                "reference": "ae9282cf11dd2933b7e71a611f9590f07d53d3f3",
                 "shasum": ""
             },
             "require": {
@@ -372,7 +372,7 @@
             "keywords": [
                 "proto"
             ],
-            "time": "2021-06-02T18:53:02+00:00"
+            "time": "2021-06-08T14:59:41+00:00"
         },
         {
             "name": "grpc/grpc",
