@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3677c5758f6a74f761fe385f2cdf74d1",
+    "content-hash": "5ca618332f7ee1219045f770e049ccfa",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -117,16 +117,16 @@
         },
         {
             "name": "google/analytics-data",
-            "version": "v0.6.0",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/php-analytics-data.git",
-                "reference": "d1c18d97c75d0b1e8698abf27644b3cd15657316"
+                "reference": "a52e22518dad2acd5ba3c4263642c8b5956be46c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/php-analytics-data/zipball/d1c18d97c75d0b1e8698abf27644b3cd15657316",
-                "reference": "d1c18d97c75d0b1e8698abf27644b3cd15657316",
+                "url": "https://api.github.com/repos/googleapis/php-analytics-data/zipball/a52e22518dad2acd5ba3c4263642c8b5956be46c",
+                "reference": "a52e22518dad2acd5ba3c4263642c8b5956be46c",
                 "shasum": ""
             },
             "require": {
@@ -162,9 +162,9 @@
             ],
             "description": "Google Analytics Data Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/php-analytics-data/tree/v0.6.0"
+                "source": "https://github.com/googleapis/php-analytics-data/tree/v0.7.0"
             },
-            "time": "2021-08-27T00:41:47+00:00"
+            "time": "2021-09-15T00:52:58+00:00"
         },
         {
             "name": "google/auth",
