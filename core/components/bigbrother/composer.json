@@ -6,7 +6,7 @@
     },
     "require": {
         "google/analytics-data": "^0.7",
-        "google/analytics-admin": "^0.4",
+        "google/analytics-admin": "^0.6",
         "php": ">=7.2",
         "ext-json": "*",
         "ext-bcmath": "*"

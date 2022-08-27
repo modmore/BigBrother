@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ca618332f7ee1219045f770e049ccfa",
+    "content-hash": "cb6c5c34ab37e5097d2a0185cd7762a3",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -70,25 +70,24 @@
         },
         {
             "name": "google/analytics-admin",
-            "version": "v0.4.2",
+            "version": "v0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/php-analytics-admin.git",
-                "reference": "027a2199781588ed9bce24d59adb00f334fadba6"
+                "reference": "955d804f5a26098e0bcedd49230faed367ba58a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/php-analytics-admin/zipball/027a2199781588ed9bce24d59adb00f334fadba6",
-                "reference": "027a2199781588ed9bce24d59adb00f334fadba6",
+                "url": "https://api.github.com/repos/googleapis/php-analytics-admin/zipball/955d804f5a26098e0bcedd49230faed367ba58a7",
+                "reference": "955d804f5a26098e0bcedd49230faed367ba58a7",
                 "shasum": ""
             },
             "require": {
                 "google/gax": "^1.6.0"
             },
             "require-dev": {
-                "google/cloud-core": "^1.31",
-                "phpdocumentor/reflection": "^3.0",
-                "phpunit/phpunit": "^4.8|^5.0"
+                "phpunit/phpunit": "^4.8|^5.0|^8.0",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "suggest": {
                 "ext-grpc": "Enables use of gRPC, a universal high-performance RPC framework created by Google.",
@@ -115,10 +114,9 @@
             ],
             "description": "Google Analytics Admin Client for PHP",
             "support": {
-                "issues": "https://github.com/googleapis/php-analytics-admin/issues",
-                "source": "https://github.com/googleapis/php-analytics-admin/tree/v0.4.2"
+                "source": "https://github.com/googleapis/php-analytics-admin/tree/v0.6.4"
             },
-            "time": "2022-01-12T16:19:20+00:00"
+            "time": "2022-08-05T00:41:21+00:00"
         },
         {
             "name": "google/analytics-data",
@@ -921,5 +919,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
