@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ca618332f7ee1219045f770e049ccfa",
+    "content-hash": "37f35cbada69fdc791f9fa88a62ab674",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -122,25 +122,24 @@
         },
         {
             "name": "google/analytics-data",
-            "version": "v0.7.1",
+            "version": "v0.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/php-analytics-data.git",
-                "reference": "965efba2033af595e8cb1130c9f42436aaf933b7"
+                "reference": "7f6fbfeaf0b01a562bade6e2d809dca92455bd0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/php-analytics-data/zipball/965efba2033af595e8cb1130c9f42436aaf933b7",
-                "reference": "965efba2033af595e8cb1130c9f42436aaf933b7",
+                "url": "https://api.github.com/repos/googleapis/php-analytics-data/zipball/7f6fbfeaf0b01a562bade6e2d809dca92455bd0c",
+                "reference": "7f6fbfeaf0b01a562bade6e2d809dca92455bd0c",
                 "shasum": ""
             },
             "require": {
                 "google/gax": "^1.6.0"
             },
             "require-dev": {
-                "google/cloud-core": "^1.31",
-                "phpdocumentor/reflection": "^3.0",
-                "phpunit/phpunit": "^4.8|^5.0"
+                "phpunit/phpunit": "^4.8|^5.0|^8.0",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "suggest": {
                 "ext-grpc": "Enables use of gRPC, a universal high-performance RPC framework created by Google.",
@@ -167,9 +166,9 @@
             ],
             "description": "Google Analytics Data Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/php-analytics-data/tree/v0.7.1"
+                "source": "https://github.com/googleapis/php-analytics-data/tree/v0.8.6"
             },
-            "time": "2021-10-20T17:52:15+00:00"
+            "time": "2022-08-05T00:41:21+00:00"
         },
         {
             "name": "google/auth",
@@ -921,5 +920,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
