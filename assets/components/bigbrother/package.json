@@ -2,8 +2,8 @@
   "dependencies": {
     "chart.js": "^3.3",
     "chartjs-adapter-luxon": "^1.0",
+    "uglify-js": "^3.17"
     "luxon": "^3.3",
-    "uglify-js": "^3.13"
   },
   "scripts": {
     "build": "npm run build:js",
