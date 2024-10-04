@@ -1,5 +1,6 @@
 _packages/
 _build/build.config.php
+core/components/bigbrother/vendor/
 config.core.php
 .idea
 hook.php
