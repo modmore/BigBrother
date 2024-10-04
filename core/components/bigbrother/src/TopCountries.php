@@ -12,7 +12,7 @@ class TopCountries extends BaseReport
 {
     public function run(array $params = []): array
     {
-        $cacheKey = 'reports/top-countries';
+        $cacheKey = "reports/{$this->property}-top-countries";
         if ($data = $this->cacheManager->get($cacheKey, \BigBrother::$cacheOptions)) {
             return $data;
         }
