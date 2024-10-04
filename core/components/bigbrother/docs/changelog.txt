@@ -1,3 +1,10 @@
+Big Brother 3.0.0-pl
+----------------------
+Released on
+
+- Dashboard title shadow is now only applied in MODX 2.x (@sebastian-marinescu) [#158]
+- Reports now have a separate cache key per GA property, if multiple properties are used via user/system settings [ed73391]
+
 Big Brother 3.0.0-rc1
 ----------------------
 Released on 2022-08-27
