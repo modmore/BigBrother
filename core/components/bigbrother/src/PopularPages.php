@@ -12,7 +12,7 @@ class PopularPages extends BaseReport
 {
     public function run(array $params = []): array
     {
-        $cacheKey = 'reports/popular-pages';
+        $cacheKey = "reports/{$this->property}-popular-pages";
         if ($data = $this->cacheManager->get($cacheKey, \BigBrother::$cacheOptions)) {
             return $data;
         }

@@ -12,7 +12,7 @@ class Acquisition extends BaseReport
 {
     public function run(array $params = []): array
     {
-        $cacheKey = 'reports/acquisition';
+        $cacheKey = "reports/{$this->property}-acquisition";
         if ($data = $this->cacheManager->get($cacheKey, \BigBrother::$cacheOptions)) {
             return $data;
         }
