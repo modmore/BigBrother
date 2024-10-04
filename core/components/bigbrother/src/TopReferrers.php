@@ -15,7 +15,7 @@ class TopReferrers extends BaseReport
 {
     public function run(array $params = []): array
     {
-        $cacheKey = 'reports/top-referrers';
+        $cacheKey = "reports/{$this->property}-top-referrers";
         if ($data = $this->cacheManager->get($cacheKey, \BigBrother::$cacheOptions)) {
             return $data;
         }

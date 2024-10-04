@@ -222,8 +222,9 @@
     padding: 0;
     background: #F1F1F1;
 }
-.dashboard-block.bigbrother-widget .title {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /** @todo 2.x only */
+/* Set a box-shadow in 2.x only (Widgets in 3.x have [data-id]) */
+.dashboard-block.bigbrother-widget:not([data-id]) .title {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 .dashboard-block.bigbrother-widget .bigbrother-widget-title {
     width: 100%;
