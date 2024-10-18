@@ -85,10 +85,10 @@ class VisitsLineChart extends BaseReport
         $output['data'][0]['data'] = $this->fillGaps($output['data'][0]['data'], '-28 days');
         $output['data'][1]['data'] = $this->fillGaps($output['data'][1]['data'], '-56 days', '-27 days');
 
-        // Determine date range
-        $output['first_date'] = date('M j', strtotime('-28 days'));
+        // Determine date range (JS expects format to be Y-m-d)
+        $output['first_date'] = date('Y-m-d', strtotime('-28 days'));
         $lastDate = end($output['data'][0]['data']);
-        $output['last_date'] = date('M j', strtotime($lastDate['x']));
+        $output['last_date'] = date('Y-m-d', strtotime($lastDate['x']));
 
         $this->cacheManager->set($cacheKey, $output, 3600, \BigBrother::$cacheOptions);
 

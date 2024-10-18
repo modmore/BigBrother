@@ -55,12 +55,25 @@ BigBrother.VisitsLineGraph = function(el) {
                     },
                     x: {
                         type: 'time',
-                        unit: 'week',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: BigBrother.dateFormat()
+                            },
+                        },
                         min: luxon.DateTime.now().minus({days: 28}).toISODate(),
                         max: luxon.DateTime.now().toISODate(),
                         beginAtZero: true,
                         ticks: {
-                            maxRotation: 0
+                            maxRotation: 0,
+                            // Use a callback to set the locale - Luxon uses two characters just like cultureKey
+                            callback: function(value) {
+                                return luxon
+                                    .DateTime
+                                    .fromFormat(value, BigBrother.dateFormat())
+                                    .setLocale(BigBrother.locale())
+                                    .toFormat(BigBrother.dateFormat());
+                            }
                         },
                         grid: {
                             drawBorder: false,
@@ -81,13 +94,21 @@ BigBrother.VisitsLineGraph = function(el) {
                     legend: {
                         display: false
                     },
-                    // tooltip: { // While this adds dates to the tooltip, it also somehow breaks the hover effect on points
-                    //     callbacks: {
-                    //         label: function(ctx) {
-                    //             return ctx.label + ': ' + ctx.parsed.y;
-                    //         }
-                    //     }
-                    // }
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                let date = tooltipItems[0].parsed.x;
+                                return luxon
+                                    .DateTime
+                                    .fromMillis(date)
+                                    .setLocale(BigBrother.locale())
+                                    .toFormat(BigBrother.dateFormat());
+                            },
+                            // label: function(ctx) { // While this adds dates to the tooltip, it also somehow breaks the hover effect on points
+                            //     return ctx.label + ': ' + ctx.parsed.y;
+                            // }
+                        }
+                    }
                 }
             }
         });

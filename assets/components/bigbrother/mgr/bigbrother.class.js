@@ -62,8 +62,9 @@ Ext.extend(BigBrother,Ext.Component,{
     },
 
     renderPeriodDates(visitsChart) {
+        console.log(visitsChart['first_date']);
         if (visitsChart['first_date'] && visitsChart['last_date']) {
-            let period = visitsChart['first_date'] + ' - ' + visitsChart['last_date'];
+            let period = this.renderDate(visitsChart['first_date']) + ' - ' + this.renderDate(visitsChart['last_date']);
             let element = document.querySelector('#bb-title-period');
             if (typeof element !== 'undefined' && element !== null) {
                 element.innerHTML = period;
@@ -110,6 +111,109 @@ Ext.extend(BigBrother,Ext.Component,{
                 }
             }
         });
+    },
+
+    /**
+     * Renders date in correct locale and format
+     * @param date - parameter format must be yyyy-MM-dd (Y-m-d in PHP)
+     * @returns {*}
+     */
+    renderDate: function(date) {
+        return luxon.DateTime.fromFormat(date, 'yyyy-MM-dd').setLocale(BigBrother.locale()).toFormat(BigBrother.dateFormat());
+    },
+
+    /**
+     * Static method to get system date format converted into Luxon format to be used by chart.js
+     * @returns {string}
+     */
+    dateFormat: function() {
+        let format = BigBrother.phpToLuxonFormat(MODx.config.manager_date_format);
+        // Only add the day of the week name if it isn't already specified in the date format
+        if (!format.includes('c') && !format.includes('E')) {
+            return `cccc ${format}`;
+        }
+
+        return format;
+    },
+
+    /**
+     * Checks if manager_language exists for 2.x, otherwise uses the manager cultureKey
+     * Falls back to 'en'
+     * @returns {string}
+     */
+    locale: function() {
+        return typeof MODx.config.manager_language !== 'undefined'
+        && MODx.config.manager_language !== null
+        && MODx.config.manager_language !== ''
+            ? MODx.config.manager_language || 'en'
+            : MODx.config.cultureKey || 'en';
+    },
+
+    /**
+     * Converts a PHP date format string to a Luxon date format string.
+     * https://gist.github.com/mahmoudsaeed/83f9ca33056647262a3e046a7b2351fc
+     *
+     * @param {string} format - The PHP date format string to convert.
+     * @param {boolean} [standalone=false] - Optional. Whether to use standalone tokens for month and weekday names. Defaults to false.
+     *
+     * @returns {string} The converted Luxon date format string.
+     */
+    phpToLuxonFormat: function(format, standalone = false) {
+        const replacements = {
+            // Day
+            d: 'dd',
+            D: standalone ? 'ccc' : 'EEE',
+            j: 'd',
+            l: standalone ? 'cccc' : 'EEEE',
+            N: standalone ? 's' : 'E',
+            S: '', // no equivalent
+            w: '', // no equivalent, use N
+            z: 'o',
+            // Week
+            W: 'W',
+            // Month
+            F: standalone ? 'LLLL' : 'MMMM',
+            m: standalone ? 'LL' : 'MM',
+            M: standalone ? 'LLL' : 'MMM',
+            n: standalone ? 'L' : 'M',
+            t: '', // no equivalent
+            // Year
+            L: '', // no equivalent
+            o: 'kkkk',
+            X: '', // no equivalent
+            x: '', // no equivalent
+            Y: 'yyyy',
+            y: 'yy',
+            // Time
+            a: 'a',
+            A: 'a', // close enough
+            B: '', // no equivalent
+            g: 'h',
+            G: 'H',
+            h: 'hh',
+            H: 'HH',
+            i: 'mm',
+            s: 'ss',
+            u: '', // no equivalent, use v
+            v: 'SSS',
+            // Timezone
+            e: 'z',
+            I: '', // no equivalent
+            O: 'ZZZ',
+            P: 'ZZ', // no equivalent
+            p: '', // no equivalent, use P
+            T: 'ZZZZ',
+            Z: '', // no equivalent
+            // Full Date/Time
+            c: "yyyy-LL-dd'T'HH:mm:ssZZ",
+            r: 'EEE, dd LLL yyyy HH:mm:ss ZZZ',
+            U: 'X',
+        }
+
+        return format
+            .split('')
+            .map((chr) => (chr in replacements ? replacements[chr] : chr))
+            .join('')
     }
 });
 Ext.reg('bigbrother',BigBrother);
