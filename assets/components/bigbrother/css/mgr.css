@@ -260,6 +260,20 @@
     font-weight: 500;
     white-space: nowrap;
 }
+.bigbrother-widget .title-wrapper {
+    display: flex;
+    max-width: 100%;
+}
+.bigbrother-widget .title-wrapper .title {
+    white-space: nowrap;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+.bigbrother-widget .title-wrapper .action-buttons {
+    flex-shrink: 0;
+}
 .bigbrother-widget-subtitle {
     font-weight: normal;
     color: #5a5a5a;
