@@ -4,6 +4,7 @@ Released on
 
 - Dashboard title shadow is now only applied in MODX 2.x (@sebastian-marinescu) [#158]
 - Reports now have a separate cache key per GA property, if multiple properties are used via user/system settings [ed73391]
+- Fixed stand-alone widgets not loading their data if the main widget wasn't present. [b8ba83a]
 
 Big Brother 3.0.0-rc1
 ----------------------

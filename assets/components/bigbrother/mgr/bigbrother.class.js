@@ -85,7 +85,6 @@ Ext.extend(BigBrother,Ext.Component,{
                 success: {
                     fn: function (result) {
                         if (result.data['visits/line']) {
-                            console.log(result);
                             this.renderPeriodDates(result.data['visits/line']);
                         }
 
