@@ -266,9 +266,11 @@
 }
 .bigbrother-block {
     padding: 10px;
-    margin-bottom: 10px;
     background: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /** @todo 2.x only */
+}
+.bigbrother-widget--main .bigbrother-block {
+    margin-bottom: 10px;
 }
 .bigbrother-block-title {
     font-size: 12px;
@@ -295,6 +297,9 @@
 .bigbrother-row {
     position: relative;
     display: flex;
+}
+.bigbrother-widget--main .bigbrother-row .bigbrother-block {
+    margin-bottom: 0;
 }
 
 .bigbrother-col {
