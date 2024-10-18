@@ -1,10 +1,16 @@
 Big Brother 3.0.0-pl
 ----------------------
-Released on
+Released on 2024-10-18
 
 - Dashboard title shadow is now only applied in MODX 2.x (@sebastian-marinescu) [#158]
 - Reports now have a separate cache key per GA property, if multiple properties are used via user/system settings [ed73391]
-- Fixed stand-alone widgets not loading their data if the main widget wasn't present. [b8ba83a]
+- Fix stand-alone widgets not loading their data if the main widget wasn't present. [b8ba83a]
+- Fix spacing and blank blocks in MODX 3 dashboard if widget was on a row taller than the inner content. [c98719f]
+- Fix widget title text wrapping which caused widget action buttons to fall out of alignment. [15614b2]
+- Fix incorrect (old) action for menu item in development bootstrap script [3abd998]
+- Added date localisation and dates will now use the MODX manager_date_format setting when rendering. [92b340e]
+- Fix typo in npm config and update chartjs-adapter-luxon filename to account for change in new version. [4a7852d]
+- Update dependencies: chart.js to 3.9.1, luxon to 3.5.0, chartjs-adapter-luxon to 1.3.0, uglify-js to 3.17.0, google/analytics-admin to 0.10.0, google/analytics-data to 0.9.4, guzzlehttp/psr7 to 2.7.0
 
 Big Brother 3.0.0-rc1
 ----------------------
