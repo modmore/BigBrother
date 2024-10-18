@@ -62,7 +62,6 @@ Ext.extend(BigBrother,Ext.Component,{
     },
 
     renderPeriodDates(visitsChart) {
-        console.log(visitsChart['first_date']);
         if (visitsChart['first_date'] && visitsChart['last_date']) {
             let period = this.renderDate(visitsChart['first_date']) + ' - ' + this.renderDate(visitsChart['last_date']);
             let element = document.querySelector('#bb-title-period');
