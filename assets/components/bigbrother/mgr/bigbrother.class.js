@@ -65,7 +65,9 @@ Ext.extend(BigBrother,Ext.Component,{
         if (visitsChart['first_date'] && visitsChart['last_date']) {
             let period = visitsChart['first_date'] + ' - ' + visitsChart['last_date'];
             let element = document.querySelector('#bb-title-period');
-            element.innerHTML = period;
+            if (typeof element !== 'undefined' && element !== null) {
+                element.innerHTML = period;
+            }
         }
     },
 
@@ -83,6 +85,7 @@ Ext.extend(BigBrother,Ext.Component,{
                 success: {
                     fn: function (result) {
                         if (result.data['visits/line']) {
+                            console.log(result);
                             this.renderPeriodDates(result.data['visits/line']);
                         }
 
