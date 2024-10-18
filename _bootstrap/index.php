@@ -89,7 +89,7 @@ if (!createObject('modMenu', array(
     'icon' => 'images/icons/plugin.gif',
     'menuindex' => '0',
     'namespace' => 'bigbrother',
-    'action' => 'report',
+    'action' => 'authorize',
 ), 'text', false)) {
     echo "Error creating menu.\n";
 }
