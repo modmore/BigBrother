@@ -49,8 +49,8 @@ BigBrother.VisitsLineGraph = function(el) {
                 },
                 scales: {
                     y: {
-                        grid: {
-                            drawBorder: false,
+                        border: {
+                            display: false,
                         }
                     },
                     x: {
@@ -66,24 +66,27 @@ BigBrother.VisitsLineGraph = function(el) {
                         beginAtZero: true,
                         ticks: {
                             maxRotation: 0,
-                            // Use a callback to set the locale - Luxon uses two characters just like cultureKey
+                            // Chart.js v4 passes a timestamp; format with Luxon using the manager locale
                             callback: function(value) {
                                 return luxon
                                     .DateTime
-                                    .fromFormat(value, BigBrother.dateFormat())
+                                    .fromMillis(value)
                                     .setLocale(BigBrother.locale())
                                     .toFormat(BigBrother.dateFormat());
                             }
                         },
+                        border: {
+                            display: false,
+                        },
                         grid: {
-                            drawBorder: false,
                             drawOnChartArea: false,
-                            // drawTicks: false
                         }
                     },
                     xPrev: {
                         type: 'time',
-                        unit: 'week',
+                        time: {
+                            unit: 'week',
+                        },
                         min: luxon.DateTime.now().minus({days: 56}).toISODate(),
                         max: luxon.DateTime.now().minus({days: 28}).toISODate(),
                         display: false

@@ -45,16 +45,21 @@ BigBrother.Acquisition = function(el) {
                 },
                 scales: {
                     y: {
+                        border: {
+                            display: false,
+                        },
                         grid: {
-                            drawBorder: false,
                             drawOnChartArea: false,
                         }
                     },
                     x: {
-                        title: _('bigbrother.page_views'),
-                        grid: {
-                            drawBorder: false,
-                        }
+                        title: {
+                            display: true,
+                            text: _('bigbrother.page_views'),
+                        },
+                        border: {
+                            display: false,
+                        },
                     },
                 }
             }

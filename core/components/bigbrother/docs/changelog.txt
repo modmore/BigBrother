@@ -5,6 +5,7 @@ Released on 2026-07-27
 - Fix guzzle conflict by updating dependencies and increasing minimum PHP version to 8.2
 - Show clean error on the dashboard when a property can't be loaded [#167]
 - Fix acquisition chart mixing period data across sources and duplicating points on refresh [#41]
+- Update client-side dependencies: chart.js to 4.5.1, luxon to 3.7.2, uglify-js to 3.19.3
 
 Big Brother 3.0.0-pl
 ----------------------
