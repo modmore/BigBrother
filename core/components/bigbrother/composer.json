@@ -1,7 +1,7 @@
 {
     "config": {
         "platform": {
-            "php": "7.2.5"
+            "php": "8.2"
         }
     },
     "require": {
@@ -12,7 +12,8 @@
         "ext-bcmath": "*"
     },
     "replace": {
-        "guzzlehttp/guzzle": "*"
+        "guzzlehttp/guzzle": "*",
+        "guzzlehttp/psr7": "*"
     },
     "autoload": {
         "psr-4": {

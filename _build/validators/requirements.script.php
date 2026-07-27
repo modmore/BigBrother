@@ -17,11 +17,11 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
         $modx->log($level, '- MODX Revolution 2.8+: ' . $modxVersion['full_version']);
 
         $level = xPDO::LOG_LEVEL_INFO;
-        if (version_compare(PHP_VERSION, '7.2.5') <= 0) {
+        if (version_compare(PHP_VERSION, '8.2.0') <= 0) {
             $level = xPDO::LOG_LEVEL_ERROR;
             $success = false;
         }
-        $modx->log($level, '- PHP version 7.2.5+: ' . PHP_VERSION);
+        $modx->log($level, '- PHP version 8.2.0+: ' . PHP_VERSION);
 
         $level = xPDO::LOG_LEVEL_INFO;
         $bcMath = extension_loaded('bcmath');
