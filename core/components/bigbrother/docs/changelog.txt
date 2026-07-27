@@ -3,7 +3,7 @@ Big Brother 3.1.0-pl
 Released on 2026-07-27
 
 - Fix guzzle conflict by updating dependencies and increasing minimum PHP version to 8.2
-
+- Show clean error on the dashboard when a property can't be loaded
 
 Big Brother 3.0.0-pl
 ----------------------

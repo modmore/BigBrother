@@ -140,16 +140,50 @@ HTML;
     }
 
     /**
+     * Builds the widget title bar for a loaded property, or a full-widget error message
+     * when the property cannot be loaded.
+     *
      * @param int $propertyId
-     * @return string
+     * @param bool $failed Set to true when the property could not be loaded
+     * @return string Title bar HTML on success; full widget error HTML when the property cannot be loaded
      */
-    protected function getWidgetTitleBar(int $propertyId): string
+    protected function getWidgetTitleBar(int $propertyId, bool &$failed = false): string
     {
         $property = $this->getGA4Property($propertyId);
+        $hasAuthorizeAccess = $this->modx->context->checkPolicy('bigbrother_authorize');
 
-        // Only display the authorize link if the user has the correct permissions
+        if ($property === false) {
+            $failed = true;
+            $authorizeAction = '';
+            if ($hasAuthorizeAccess) {
+                $authLink = $this->bigbrother->getAuthorizeUrl();
+                $authorizeAction = <<<HTML
+<br><br>
+<a href="{$authLink}" class="x-btn">{$this->modx->lexicon('bigbrother.not_authorized.authorize_now')} &raquo;</a>
+HTML;
+            }
+
+            return <<<HTML
+<div class="bigbrother-inner-widget">
+    <div class="bigbrother-block">
+        <p class="bigbrother-warning">
+            {$this->modx->lexicon('bigbrother.error.invalid_property')}
+            {$authorizeAction}
+        </p>
+
+        <p class="bigbrother-credits bigbrother-credits--justified">
+            <span class="bigbrother-credits__version">{$this->modx->lexicon('bigbrother.powered_by_bigbrother')} v{$this->bigbrother->version}</span>
+            <a href="https://www.modmore.com/extras/bigbrother/?utm_source=bigbrother_footer" target="_blank" rel="noopener" class="bigbrother-credits__logo">
+                <img src="{$this->modx->getOption('bigbrother.assets_url')}images/modmore.svg" alt="a modmore product">
+            </a>
+        </p>
+    </div>
+</div>
+HTML;
+        }
+
         $authorizeLink = '';
-        if ($this->modx->context->checkPolicy('bigbrother_authorize')) {
+        if ($hasAuthorizeAccess) {
             $authorizeLink = <<<HTML
 <a href="{$this->bigbrother->getAuthorizeUrl()}" title="{$this->modx->lexicon('bigbrother.authorization')}" class="authorize-link"><i class="icon icon-cog"></i></a>
 HTML;

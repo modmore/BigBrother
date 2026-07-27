@@ -19,9 +19,14 @@ class BigBrotherMainDashboardWidget extends BigBrotherAbstractDashboardWidget
             return $authorized;
         }
 
-        // Get the property and build the widget title bar
+        // Get the property and build the widget title bar. If the property cannot be loaded,
+        // getWidgetTitleBar returns a full-widget error message instead of a title bar.
         $propertyId = $this->bigbrother->getPropertyID();
-        $titleElement = $this->getWidgetTitleBar($propertyId);
+        $propertyFailed = false;
+        $titleElement = $this->getWidgetTitleBar($propertyId, $propertyFailed);
+        if ($propertyFailed) {
+            return $titleElement;
+        }
 
         // Adjust the name shown in the widget title bar - alternatively we could also extend process() instead of
         // render() for more control, but that may require more maintenance to keep cross-version compatible
