@@ -50,7 +50,7 @@ class BigBrother
      *
      * @var string
      */
-    public $version = '3.0.0-pl';
+    public $version = '3.1.0-pl';
 
     /**
      * An instance of the Google Cloud PHP SDK's OAuth2 object. Used to pass into various Client as `credentials`.
