@@ -13,7 +13,8 @@
     },
     "replace": {
         "guzzlehttp/guzzle": "*",
-        "guzzlehttp/psr7": "*"
+        "guzzlehttp/psr7": "*",
+        "guzzlehttp/promises": "*"
     },
     "autoload": {
         "psr-4": {
