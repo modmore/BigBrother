@@ -71,12 +71,7 @@ BigBrother.Acquisition = function(el) {
 
         chart.data.labels = data[0].labels;
         chart.data.datasets.forEach((dataset, index) => {
-            while (dataset.data.pop()) { }
-            if (data.hasOwnProperty(index)) {
-                data[index].data.forEach((row) => {
-                    dataset.data.push(row);
-                })
-            }
+            dataset.data = data.hasOwnProperty(index) ? data[index].data : [];
         });
         chart.update();
     };

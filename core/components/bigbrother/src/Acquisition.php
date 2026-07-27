@@ -50,13 +50,40 @@ class Acquisition extends BaseReport
 
         $data = $this->parseReportToArray($response);
 
-        $output = [];
+        // Join both date ranges on medium name so Chart.js can align them by index.
+        $byMedium = [];
         foreach ($data as $value) {
+            $medium = $this->normalizeMedium($value['firstUserMedium']);
             $dataset = $value['dateRange'] === 'date_range_0' ? 0 : 1;
-            $output[$dataset]['labels'][] = $this->normalizeMedium($value['firstUserMedium']);
-            $output[$dataset]['data'][] = (int)$value['screenPageViews'];
+            if (!isset($byMedium[$medium])) {
+                $byMedium[$medium] = [0 => 0, 1 => 0];
+            }
+            $byMedium[$medium][$dataset] += (int)$value['screenPageViews'];
         }
 
+        if (empty($byMedium)) {
+            return [];
+        }
+
+        uasort($byMedium, static function ($a, $b) {
+            return $b[0] <=> $a[0];
+        });
+
+        $labels = [];
+        $data0 = [];
+        $data1 = [];
+        foreach ($byMedium as $medium => $values) {
+            $labels[] = $medium;
+            $data0[] = $values[0];
+            $data1[] = $values[1];
+        }
+
+        $output = [
+            0 => ['labels' => $labels, 'data' => $data0],
+            1 => ['labels' => $labels, 'data' => $data1],
+        ];
+
+        $this->cacheManager->set($cacheKey, $output, 3600, \BigBrother::$cacheOptions);
         return $output;
     }
 
